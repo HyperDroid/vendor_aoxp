@@ -50,5 +50,5 @@
 02 4 * * * busybox run-parts /system/etc/cron/cron.daily
 22 4 * * 0 busybox run-parts /system/etc/cron/cron.weekly
 EOF
-     fi
+    fi
 	busybox crond -c /data/cron

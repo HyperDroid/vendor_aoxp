@@ -95,15 +95,9 @@ PRODUCT_COPY_FILES += \
     vendor/aoxp/prebuilt/common/etc/init.d/01zipalign:system/etc/init.d/01zipalign \
     vendor/aoxp/prebuilt/common/etc/init.d/02sysctl:system/etc/init.d/02sysctl \
     vendor/aoxp/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
-    vendor/aoxp/prebuilt/common/etc/init.d/05freemem:system/etc/init.d/05freemem \
-    vendor/aoxp/prebuilt/common/etc/init.d/06removecache:system/etc/init.d/06removecache \
-    vendor/aoxp/prebuilt/common/etc/init.d/07fixperms:system/etc/init.d/07fixperms \
-    vendor/aoxp/prebuilt/common/etc/init.d/09cron:system/etc/init.d/09cron \
-    vendor/aoxp/prebuilt/common/etc/init.d/10sdboost:system/etc/init.d/10sdboost \
-    vendor/aoxp/prebuilt/common/etc/init.d/98tweaks:system/etc/init.d/98tweaks \
-    vendor/aoxp/prebuilt/common/etc/init_trigger.disabled:system/etc/init_trigger.disabled \
-    vendor/aoxp/prebuilt/common/etc/liberty.bsh:system/etc/liberty.bsh \
-    vendor/aoxp/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf    
+    vendor/aoxp/prebuilt/common/etc/init.d/09cron:system/etc/init.d/04cron \
+    vendor/aoxp/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
+    vendor/aoxp/prebuilt/common/xbin/zipalign:system/xbin/zipalign
 
 PRODUCT_COPY_FILES += \
     vendor/aoxp/prebuilt/common/etc/cron/cron.conf:system/etc/cron/cron.conf \
@@ -137,8 +131,11 @@ PRODUCT_PACKAGES += \
 
 # Extra Optional packages
 PRODUCT_PACKAGES += \
-#    HoloLauncherHD \
+    ApexLauncher \
     DashClock \
+    CMFileManager \
+    EasyUMS \
+    STweaks \
 #    SlimFileManager \
 #    SlimCenter \
     Velvet \
@@ -164,7 +161,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JDQ39
 
 PRODUCT_PROPERTY_OVERRIDES += \
     aoxp.ota.version=$(PRODUCT_VERSION_MAJOR)_$(PRODUCT_VERSION_MINOR)$(PRODUCT_VERSION_MAINTENANCE)
-    rom.goo.rom=$(PRODUCT_VERSION_MAJOR)_$(PRODUCT_VERSION_MINOR)$(PRODUCT_VERSION_MAINTENANCE)
+    ro.goo.developerid=sarcastillo
+    ro.goo.rom=$(PRODUCT_VERSION_MAJOR)
+    rom.goo.version=$(PRODUCT_VERSION_MAINTENANCE)
 
 ifdef AOXP_NIGHTLY
     PRODUCT_PROPERTY_OVERRIDES += \
