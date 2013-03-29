@@ -1,4 +1,4 @@
-#!/system/xbin/sh
+#!/system/bin/sh
 
 if [ -e /system/xbin/firstboot.sh ]; then
    log -p i -t boot "Executing data/firstboot.sh.."
