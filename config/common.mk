@@ -95,7 +95,7 @@ PRODUCT_COPY_FILES += \
     vendor/aoxp/prebuilt/common/etc/init.d/01zipalign:system/etc/init.d/01zipalign \
     vendor/aoxp/prebuilt/common/etc/init.d/02sysctl:system/etc/init.d/02sysctl \
     vendor/aoxp/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
-    vendor/aoxp/prebuilt/common/etc/init.d/09cron:system/etc/init.d/04cron \
+    vendor/aoxp/prebuilt/common/etc/init.d/04cron:system/etc/init.d/04cron \
     vendor/aoxp/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
     vendor/aoxp/prebuilt/common/xbin/zipalign:system/xbin/zipalign
 
