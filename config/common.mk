@@ -14,7 +14,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     vendor/aoxp/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/aoxp/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/aoxp/prebuilt/common/bin/50-slim.sh:system/addon.d/50-slim.sh
+    vendor/aoxp/prebuilt/common/bin/50-aoxp.sh:system/addon.d/50-aoxp.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -25,9 +25,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/aoxp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
-# SLIM-specific init file
+# AOXP-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/aoxp/prebuilt/common/etc/init.local.rc:root/init.slim.rc
+    vendor/aoxp/prebuilt/common/etc/init.local.rc:root/init.aoxp.rc
 
 # Copy latinime for gesture typing
 PRODUCT_COPY_FILES += \
@@ -80,7 +80,7 @@ PRODUCT_COPY_FILES +=  \
     vendor/aoxp/prebuilt/common/media/audio/ui/KeypressStandard.ogg:system/media/audio/ui/KeypressStandard.ogg \
     vendor/aoxp/prebuilt/common/media/audio/ui/Effect_Tick.ogg:system/media/audio/ui/Effect_Tick.ogg \
     vendor/aoxp/prebuilt/common/media/audio/ui/KeypressSpacebar.ogg:system/media/audio/ui/KeypressSpacebar.ogg
-#LOCAL SLIM CHANGES  - END
+#LOCAL AOXP CHANGES  - END
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -128,18 +128,19 @@ PRODUCT_PACKAGES += \
 # Optional packages
 PRODUCT_PACKAGES += \
     Basic \
-    HoloSpiralWallpaper \
-    NoiseField \
-    Galaxy4 \
-    LiveWallpapersPicker \
-    PhaseBeam
+#    HoloSpiralWallpaper \
+#    NoiseField \
+#    Galaxy4 \
+#    PhaseBeam \
+    LiveWallpapersPicker
+
 
 # Extra Optional packages
 PRODUCT_PACKAGES += \
-    HoloLauncherHD \
+#    HoloLauncherHD \
     DashClock \
-    SlimFileManager \
-    SlimCenter \
+#    SlimFileManager \
+#    SlimCenter \
     Velvet \
     LatinIME
 
@@ -164,15 +165,15 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JDQ39
 PRODUCT_PROPERTY_OVERRIDES += \
     aoxp.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
 
-ifdef SLIM_NIGHTLY
+ifdef AOXP_NIGHTLY
     PRODUCT_PROPERTY_OVERRIDES += \
         ro.aoxp.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-NIGHTLY-$(shell date +"%Y%m%d-%H%M") \
-        ro.modversion=Slim-$(PRODUCT_RELEASE_NAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-NIGHTLY-$(shell date +"%Y%m%d-%H%M")
+        ro.modversion=AOXP-$(PRODUCT_RELEASE_NAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-NIGHTLY-$(shell date +"%Y%m%d-%H%M")
 else
-    ifdef SLIM_RELEASE
+    ifdef AOXP_RELEASE
         PRODUCT_PROPERTY_OVERRIDES += \
             ro.aoxp.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-OFFICIAL \
-            ro.modversion=Slim-$(PRODUCT_RELEASE_NAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-OFFICIAL
+            ro.modversion=AOXP-$(PRODUCT_RELEASE_NAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-OFFICIAL
     else
         PRODUCT_PROPERTY_OVERRIDES += \
             ro.aoxp.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-UNOFFICIAL-$(shell date +"%Y%m%d-%H%M") \
