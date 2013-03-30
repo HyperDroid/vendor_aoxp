@@ -162,6 +162,16 @@ if [ -e "$PREBUILTKERNEL" ];then
    mv -f $REPACK/ota/system/aoxpkernel/boot.img $REPACK/ota/boot.img
 fi
 
+# Copy RedPill Kernel & Clean .DS_Store files
+DEVICEID=`sed -n -e'/ro\.product\.model/s/^.*=//p' $OUT/system/build.prop`
+if [ "$DEVICEID" = "GT-N7100" ]; then
+REDPILL="~/HyperDroidExtras/HyperExtras"
+   cd $REPACK/ota
+   cp $REDPILL/boot.img .
+   cp -r $REDPILL/system .
+   find -name .DS_Store -exec rm -f {} \;
+fi
+
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $REPACK/ota/system/build.prop`
 OUTFILE=$OUT/$MODVERSION.zip
