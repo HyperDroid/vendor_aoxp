@@ -163,15 +163,15 @@ if [ -e "$PREBUILTKERNEL" ];then
 fi
 
 # Copy RedPill Kernel & Clean .DS_Store files
-#DEVICEID=`sed -n -e'/ro\.product\.device/s/^.*=//p' $OUT/system/build.prop`
-#if [ "$DEVICEID" = "t03g" ]; then
+DEVICEID=`sed -n -e'/ro\.product\.device/s/^.*=//p' $OUT/system/build.prop`
+if [ "$DEVICEID" = "t03g" ]; then
 REDPILL=$ANDROID_BUILD_TOP/../HyperDroidExtras/HyperExtras
    cd $REPACK/ota
    cp $REDPILL/boot.img .
    rm -rf $REPACK/ota/system/lib/modules
    cp -r $REDPILL/system .
 #   find -name .DS_Store -exec rm -f {} \;
-#fi
+fi
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $REPACK/ota/system/build.prop`
