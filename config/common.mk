@@ -136,8 +136,7 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     EasyUMS \
     STweaks \
-#    SlimFileManager \
-#    SlimCenter \
+    GooManager \
     Velvet \
     LatinIME
 
@@ -155,8 +154,8 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/aoxp/overlay/common
 include vendor/aoxp/config/themes_common.mk
 PRODUCT_VERSION_MAJOR = HyperDroidAOXP
 PRODUCT_VERSION_MINOR = Rev
-PRODUCT_VERSION_MAINTENANCE = 1.03
-GOO_VERSION_MAINTENANCE = 4
+PRODUCT_VERSION_MAINTENANCE = 1.05
+GOO_VERSION_MAINTENANCE = 6
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JDQ39
 
